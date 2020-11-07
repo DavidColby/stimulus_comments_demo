@@ -7,11 +7,11 @@ export default class extends Controller {
     console.log("We're connected!")
   }
 
-  onCommentCreate(event) {
+  createSuccess(event) {
     const [data, status, xhr] = event.detail
     const target = event.target
 
     this.commentListTarget.innerHTML = xhr.response + this.commentListTarget.innerHTML
-    this.commentBodyTarget.innerHTML = ''
+    this.commentBodyTarget.value = ''
   }
 }
