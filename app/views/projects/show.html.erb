@@ -1,9 +1,17 @@
-<p id="notice"><%= notice %></p>
+<div id="notice"><%= notice %></div>
 
-<p>
+<div>
   <strong>Name:</strong>
   <%= @project.name %>
-</p>
-
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+</div>
+<div class="comments" data-controller="comments">
+  <h2>Comments</h2>
+  <div data-target="comments.commentList">
+    <% @project.comments.order(created_at: :desc).each do |comment| %>
+      <%= render partial: "comments/show", locals: { comment: comment } %>
+    <% end %>
+  </div>
+  <div class="comment-form">
+    <%= render partial: "comments/form" %>
+  </div>
+</div>
