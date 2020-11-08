@@ -1,9 +1,9 @@
-<%= form_with model: Comment.new, url: project_comments_path(@project), data: { action: "ajax:success->comments#createSuccess" } do |form| %>
-  <div class="form-group">
-    <%= form.text_field :body, data: { target: "comments.commentBody" }, placeholder: true %>
+<%= form_with model: Comment.new, url: project_comments_path(@project), data: { action: "ajax:success->comments#createSuccess", target: "comments.form" } do |form| %>
+  <div class="mb-4">
+    <%= form.text_field :body, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", data: { target: "comments.commentBody" }, placeholder: "Type your comment...", autocomplete: "off" %>
   </div>
-  <div class="form-group">
-    <%= form.submit "Save" %>
+  <div>
+    <%= form.submit "Save", class: "bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded cursor-pointer" %>
   </div>
 <% end %>
 

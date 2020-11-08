@@ -1,17 +1,16 @@
-<div id="notice"><%= notice %></div>
-
-<div>
-  <strong>Name:</strong>
-  <%= @project.name %>
-</div>
-<div class="comments" data-controller="comments">
-  <h2>Comments</h2>
-  <div data-target="comments.commentList">
-    <% @project.comments.order(created_at: :desc).each do |comment| %>
-      <%= render partial: "comments/show", locals: { comment: comment } %>
-    <% end %>
+<div class="container mx-auto max-w-lg border border-gray-200 p-4 mt-4 rounded">
+  <div>
+    <h2 class="text-2xl mb-4"><%= @project.name %></h2>
   </div>
-  <div class="comment-form">
-    <%= render partial: "comments/form" %>
+  <div data-controller="comments">
+    <h3 class="text-xl mb-2">Comments</h3>
+    <div data-target="comments.commentList" class="mb-4">
+      <% @project.comments.order(created_at: :desc).each do |comment| %>
+        <%= render partial: "comments/show", locals: { comment: comment } %>
+      <% end %>
+    </div>
+    <div>
+      <%= render partial: "comments/form" %>
+    </div>
   </div>
 </div>
