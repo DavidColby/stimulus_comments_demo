@@ -4,6 +4,6 @@ The Rails project in this repo contains all you need to get started using Stimul
 
 * Clone this repository
 * `bundle install`
-* `rails db:create`
+* `rails db:create && rails db:migrate`
 * `rails server`
 * Visit `localhost:3000` in your browser and create a project
